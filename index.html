@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f3">
+  <title>Curio — Learn by asking</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <span class="logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="m12 3 1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8L12 3Z"/>
+            <path d="M19 17v4m2-2h-4"/>
+          </svg>
+        </span>
+        curio<em>.</em>
+      </div>
+      <nav>
+        <a href="#home">Discover</a>
+        <a href="#recent">My learning</a>
+        <a href="#stats">Progress</a>
+      </nav>
+      <div class="profile">
+        <div class="streak">🔥 &nbsp;3 day streak</div>
+        <div class="avatar">AR</div>
+      </div>
+    </header>
+
+    <main id="home">
+      <div class="eyebrow">Your next little breakthrough</div>
+      <h1>Curiosity looks good <span>on you.</span></h1>
+      <p class="intro">Pick a topic, set your pace, and see what sticks. A few good questions can take you a long way.</p>
+
+      <div class="grid">
+        <section class="panel builder" id="builder">
+          <div class="title-row">
+            <h2>Make a quiz</h2>
+            <span class="step">01 — 03</span>
+          </div>
+          <label class="label" for="topic">What do you want to explore?</label>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <circle cx="10.5" cy="10.5" r="6.5"/>
+              <path d="m16 16 4.5 4.5"/>
+            </svg>
+            <input id="topic" list="topics" value="Python" placeholder="Try a topic, like neuroscience…">
+            <datalist id="topics">
+              <option>Python</option>
+              <option>Machine Learning</option>
+              <option>Generative AI</option>
+              <option>JavaScript</option>
+            </datalist>
+          </div>
+          <div class="chips">
+            <button class="chip" data-topic="Python">Python</button>
+            <button class="chip" data-topic="Machine Learning">Machine learning</button>
+            <button class="chip" data-topic="Generative AI">GenAI</button>
+            <button class="chip" data-topic="JavaScript">JavaScript</button>
+          </div>
+          <div class="divider"></div>
+          <span class="label">Choose your difficulty</span>
+          <div class="levels">
+            <button class="level active" data-level="Easy"><b>Easy</b><small>Start with the basics</small></button>
+            <button class="level" data-level="Medium"><b>Medium</b><small>Build confidence</small></button>
+            <button class="level" data-level="Hard"><b>Hard</b><small>Ready to stretch?</small></button>
+          </div>
+          <div class="counter-row">
+            <span class="label" style="margin:0">Questions</span>
+            <div class="counter">
+              <button id="minus" aria-label="Fewer questions">−</button>
+              <strong id="count">5</strong>
+              <button id="plus" aria-label="More questions">+</button>
+            </div>
+          </div>
+          <button id="generate" class="primary start">✳ &nbsp; Build my quiz &nbsp; →</button>
+        </section>
+
+        <section id="quiz" class="panel quiz hidden"></section>
+
+        <aside class="aside">
+          <div class="panel daily">
+            <div class="cap">A thought for today</div>
+            <h3>Little by little, a little becomes a lot.</h3>
+            <p>One question at a time is a pretty good way to learn.</p>
+            <a href="#builder">Make today count &nbsp;→</a>
+          </div>
+          <div class="panel stats" id="stats">
+            <div class="cap2">Your learning, lately</div>
+            <div class="statrow">
+              <div class="stat"><b id="stat-quizzes">4</b><span>quizzes taken</span></div>
+              <div class="stat"><b id="stat-score">82%</b><span>avg. score</span></div>
+            </div>
+          </div>
+          <div class="panel week">
+            <div class="week-head"><strong>Your week</strong><span>This week</span></div>
+            <div class="days">
+              <div class="day done"><i>✓</i>M</div>
+              <div class="day done"><i>✓</i>T</div>
+              <div class="day today"><i>•</i>W</div>
+              <div class="day"><i>·</i>T</div>
+              <div class="day"><i>·</i>F</div>
+              <div class="day"><i>·</i>S</div>
+              <div class="day"><i>·</i>S</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="recent" id="recent">
+        <div class="recent-title"><h2>Recently explored</h2><span>Your history →</span></div>
+        <div class="recent-list" id="recent-list">
+          <article class="recent-item"><div class="recent-icon">Py</div><div><b>Python fundamentals</b><small>Yesterday · 4 of 5 correct</small></div></article>
+          <article class="recent-item"><div class="recent-icon">✳</div><div><b>How GenAI creates</b><small>Tuesday · 5 of 5 correct</small></div></article>
+          <article class="recent-item"><div class="recent-icon">ML</div><div><b>Machine learning basics</b><small>Monday · 3 of 5 correct</small></div></article>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>
+</body>
+</html>
